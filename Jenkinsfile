@@ -52,6 +52,11 @@ pipeline {
             }
         }
 
+        stage('Deploy K8s') {
+            steps {
+               kubernetesDeploy configs: 'deployment-service.yml', kubeconfigId: 'kubernetes')
+            }
+        }
 
     }
 }
